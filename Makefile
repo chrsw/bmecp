@@ -13,9 +13,11 @@ stm32f411_startup.o : stm32f411_startup.c
 4_makefile_project_v2.elf : main.o stm32f411_startup.o
 	$(CC) $(LDFLAGS) $^ -o $@
 
+.PHONY: load
 load :
 	openocd -f board/st_nucleo_f4.cfg
 
+.PHONY: clean
 clean :
 	del -f *.o *.elf *.map
     
